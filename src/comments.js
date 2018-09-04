@@ -8,12 +8,9 @@ import {
   } from "./actions";
 
 
-/*const initialState = {
-    comments: [],
-    users: []
-};*/
+const initialState = [];
 
-function comments(state = [], action) {
+function comments(state = initialState, action) {
     switch(action.type) {
         case ADD_COMMENT:
             return [

@@ -6,10 +6,14 @@ import App from "./App";
 import { addComment } from './actions.js'
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
 import reducer from "./reducer";
+const enhancers = [];
+if (window.devToolsExtension) {
+  enhancers.push(window.devToolsExtension());
+}
 
-const store = createStore(reducer);
+const store = createStore(reducer, [], compose(...enhancers));
 
 ReactDOM.render(
   <Provider store={store}>
